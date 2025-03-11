@@ -1,11 +1,21 @@
 public class NilaiMahasiswa {
 
-    int uts[];
-    public NilaiMahasiswa(int nl) {
-        uts = new int [nl];
+    String nama;
+    String nim;
+    int tahunMasuk;
+    int nilaiUts;
+    int nilaiUas;
+    int[] uts;
+
+    public NilaiMahasiswa(String nm, String nim, int th, int uts, int uas) {
+        nama = nm;
+        this.nim = nim;
+        tahunMasuk = th;
+        nilaiUts = uts;
+        nilaiUas = uas;
     }
 
-    int utsTertinggiDC(int[] uts, int l, int r){
+    public static int utsTertinggiDC(int[] uts, int l, int r){
         if (l == r) {
             return uts[l];
         }
@@ -15,7 +25,7 @@ public class NilaiMahasiswa {
         return Math.max(ltertinggi, rtertingi);
     }
 
-    int utsTerendahDC(int[] uts, int l, int r){
+    public static int utsTerendahDC(int[] uts, int l, int r){
         if (l == r) {
             return uts[l];
         }
@@ -25,11 +35,11 @@ public class NilaiMahasiswa {
         return Math.min(lterendah, rterendah);
     }
 
-    double rata2BF(int[] uas){
+    public static double rata2BF(int[] uas){
         int sum = 0;
         for (int i : uas) {
             sum += i;
         }
-        return sum / uas.length;
+        return (double)sum / uas.length;
     }
 }
